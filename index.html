@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Frontend Page Creation with Specific Elements</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<header>
+			<div class="container">
+				<h2 class="name" data-testid="slackUserName">afolabi joseph</h2>
+				<img
+					src="./asset/fola.jpg"
+					alt="afolabi joseph"
+					data-testid="slackDisplayImage"
+				/>
+			</div>
+		</header>
+		<section>
+			<div class="container">
+				<div class="data">
+					<p>
+						Current day of the week is:
+						<span id="day_of_week" data-testid="currentDayOfTheWeek"
+							>Tuesday</span
+						>
+					</p>
+					<p>
+						Current UTC Time is:
+						<span id="utc_time" data-testid="currentUTCTime">1:000</span>
+					</p>
+					<p>Track: <span data-testid="myTrack">Frontend</span></p>
+				</div>
+			</div>
+		</section>
+		<footer>
+			<a href="#" data-testid="githubURL">Github</a>
+		</footer>
+		<script>
+			const daySpan = document.getElementById('day_of_week');
+			const timeSpan = document.getElementById('utc_time');
+			const weekdays = [
+				'Sunday',
+				'Monday',
+				'Tuesday',
+				'Wednesday',
+				'Thursday',
+				'Friday',
+				'Saturday',
+			];
+			const date = new Date();
+			const day = date.getDay();
+			daySpan.textContent = weekdays[day];
+
+			// Getting UTC time
+
+			const twoDigits = (a) => {
+				if (a < 10) {
+					a = `0${a}`;
+				}
+				return a;
+			};
+			const hour = twoDigits(date.getUTCHours());
+			const minute = twoDigits(date.getUTCMinutes());
+			const seconds = twoDigits(date.getUTCSeconds());
+
+			timeSpan.textContent = `${hour}:${minute}:${seconds}`;
+			//timeSpan.textContent = time;
+		</script>
+	</body>
+</html>
