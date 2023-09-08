@@ -73,11 +73,18 @@
 				}
 				return a;
 			};
-			const hour = twoDigits(date.getUTCHours());
-			const minute = twoDigits(date.getUTCMinutes());
-			const seconds = twoDigits(date.getUTCSeconds());
+			
+			const utcTime = ()=>{
+				const date = new Date();
+				let hour = twoDigits(date.getUTCHours());
+				let minute = twoDigits(date.getUTCMinutes());
+				let seconds = twoDigits(date.getUTCSeconds());
+				timeSpan.textContent = `${hour}:${minute}:${seconds}`;
+			}
 
-			timeSpan.textContent = `${hour}:${minute}:${seconds}`;
+			utcTime()
+			setInterval(utcTime, 1000)
+
 			//timeSpan.textContent = time;
 		</script>
 	</body>
