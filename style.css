@@ -22,7 +22,6 @@ header {
 
 header .container {
 	display: flex;
-	flex-wrap: wrap;
 	justify-content: space-between;
 	align-items: center;
 	padding: 10px 0;
@@ -79,4 +78,14 @@ a {
 	padding: 10px 30px;
 	background-color: rgb(181, 250, 227);
 	border-radius: 5px;
+}
+
+@media screen and (max-width: 480px) {
+	header .container {
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		align-items: center;
+		padding: 10px 0;
+	}
 }
