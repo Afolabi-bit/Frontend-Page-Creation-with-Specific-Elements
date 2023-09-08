@@ -36,12 +36,9 @@
 					</p>
 					<p>
 						Current Time is:
-						<span id="time_span"></span>
+						<span id="time_span" data-testid="currentUTCTime"></span>
 					</p>
-					<p>
-						Current UTC Time is:
-						<span id="utc_time_span" data-testid="currentUTCTime"></span>
-					</p>
+					
 					<p>Track: <span data-testid="myTrack">Frontend</span></p>
 				</div>
 			</div>
@@ -56,7 +53,6 @@
 		<script>
 			const daySpan = document.getElementById('day_of_week');
 			const timeSpan = document.getElementById('time_span');
-			const utcTimeSpan = document.getElementById('utc_time_span');
 			const weekdays = [
 				'Sunday',
 				'Monday',
@@ -85,7 +81,7 @@
 				let minute = twoDigits(date.getUTCMinutes());
 				let seconds = twoDigits(date.getUTCSeconds());
 				let now = date.getTime();
-				timeSpan.textContent = `${hour}:${minute}:${seconds}`;
+				timeSpan.textContent = `${hour}:${minute}:${seconds}  ${now}ms`;
 				utcTimeSpan.textContent = now
 			}
 
